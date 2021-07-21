@@ -21,6 +21,10 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
+app.get('/', (req,res)=> {
+	res.redirect('/products');
+})
+
 app.get('/products', async (req,res) => {
 	const { category } = req.query;
 	if(category) {
